@@ -2,10 +2,35 @@
 //
 
 #include <iostream>
+#include "stack.cpp"
+#include <string>
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    string input;
+	stack<char> charstack;
+	cout << "Enter a string to reverse its words: " << endl;
+	getline(cin,input);
+	input.append(" "); 
+	
+	int length = input.length();
+    for (int counter = 0; counter < length; counter++)
+    {
+	    if (input.at(counter) != 32 )
+	    {
+		    charstack.push(input.at(counter));
+	    }
+	    else
+	    {
+		    while (!(charstack.isEmpty()))
+		    {
+			    cout << charstack.pop();
+		    }
+	    	cout << ' ';
+	    }
+    }
+	
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
